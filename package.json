@@ -1,0 +1,36 @@
+{
+	"name": "chat-app",
+	"version": "1.0.0",
+	"description": "",
+	"main": "main.js",
+	"scripts": {
+		"server": "nodemon backend/server.js",
+		"start": "node backend/server.js",
+		"build": "npm install && npm install --prefix frontend && npm run build --prefix frontend",
+		"electron-start": "concurrently \"npm run server\" \"wait-on http://localhost:5000 && electronmon .\"",
+		"electron-pack": "electron-packager . chat-app --platform=win32 --arch=x64 --out=dist --overwrite"
+	},
+	"type": "module",
+	"keywords": [],
+	"author": "Saqlain",
+	"license": "ISC",
+	"dependencies": {
+		"bcryptjs": "^2.4.3",
+		"cookie-parser": "^1.4.6",
+		"dotenv": "^16.4.1",
+		"electron-start": "^1.10.0",
+		"electronmon": "^2.0.3",
+		"express": "^4.19.2",
+		"jsonwebtoken": "^9.0.2",
+		"mongoose": "^8.1.1",
+		"socket.io": "^4.7.4"
+	},
+	"devDependencies": {
+		"concurrently": "^8.2.2",
+		"electron": "^31.1.0",
+		"electron-is-dev": "^3.0.1",
+		"electron-packager": "^17.1.2",
+		"nodemon": "^3.0.3",
+		"wait-on": "^7.2.0"
+	}
+}
